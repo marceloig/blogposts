@@ -8,6 +8,8 @@ env:
   BUCKET_NAME: "igormarcelo.dev.br"
   AWS_REGION: "us-east-2"
   DISTRIBUTION_ID: "E1LOZGP1GH2KXM"
+  TINA_PUBLIC_CLIENT_ID: ${{ secrets.TINA_PUBLIC_CLIENT_ID }}
+  TINA_TOKEN: ${{ secrets.TINA_TOKEN }}
 
 permissions:
   contents: read
@@ -28,14 +30,11 @@ jobs:
       - run: npm ci
 
       - name: Build TinaCMS
-        env:
-          TINA_PUBLIC_CLIENT_ID: ${{ secrets.TINA_PUBLIC_CLIENT_ID }}
-          TINA_TOKEN: ${{ secrets.TINA_TOKEN }}
         run: npx tinacms build
 
       - name: Build Astro
         run: npm run build
-
+  
       - name: Configure AWS credentials (OIDC)
         uses: aws-actions/configure-aws-credentials@v4
         with:
