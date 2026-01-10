@@ -8,6 +8,7 @@ env:
   BUCKET_NAME: "igormarcelo.dev.br"
   AWS_REGION: "us-east-2"
   DISTRIBUTION_ID: "E1LOZGP1GH2KXM"
+  SITE_URL: "https://igormarcelo.dev.br"
   TINA_PUBLIC_CLIENT_ID: ${{ secrets.TINA_PUBLIC_CLIENT_ID }}
   TINA_TOKEN: ${{ secrets.TINA_TOKEN }}
 
