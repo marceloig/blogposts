@@ -8,6 +8,7 @@ env:
   BUCKET_NAME : "igormarcelo.dev.br"
   AWS_REGION : "us-east-2"
   DISTRIBUTION_ID: "E1LOZGP1GH2KXM"
+  BUILD_PATH: "." # default value when not using subfolders
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
   contents: read
