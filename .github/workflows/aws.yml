@@ -85,6 +85,9 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+      - uses: actions/download-pages-artifact@v3
+        with:
+          path: ${{ env.BUILD_PATH }}/dist
       - name: Deploy to S3
         run: aws s3 sync --delete ${{ env.BUILD_PATH }}/dist/ s3://${{ env.BUCKET_NAME }}
       - name: Create CloudFront invalidation
