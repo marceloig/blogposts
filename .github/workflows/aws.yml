@@ -8,10 +8,18 @@ env:
   BUCKET_NAME : "igormarcelo.dev.br"
   AWS_REGION : "us-east-2"
   DISTRIBUTION_ID: "E1LOZGP1GH2KXM"
-# permission can be added at job level or workflow level
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
-  id-token: write   # This is required for requesting the JWT
-  contents: read    # This is required for actions/checkout
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+  
 jobs:
   build:
     name: Build
