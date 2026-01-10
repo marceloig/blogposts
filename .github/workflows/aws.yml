@@ -86,6 +86,6 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v4
       - name: Deploy to S3
-        run: aws s3 sync --delete ./dist/ s3://${{ env.BUCKET_NAME }}
+        run: aws s3 sync --delete ${{ env.BUILD_PATH }}/dist/ s3://${{ env.BUCKET_NAME }}
       - name: Create CloudFront invalidation
         run: aws cloudfront create-invalidation --distribution-id ${{ env.DISTRIBUTION_ID }} --paths "/*"
