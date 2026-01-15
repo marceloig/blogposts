@@ -12,6 +12,15 @@ const data = await client.queries.page({relativePath: "home.mdx"});
 <!doctype html>
 <html lang="en">
 	<head>
+		<!-- Google tag (gtag.js) -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-J431FBLHKV"></script>
+		<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+		
+		  gtag('config', 'G-J431FBLHKV');
+		</script>
 		<BaseHead title={config.seo.title} description={config.seo.description} />
 	</head>
 	<body>
